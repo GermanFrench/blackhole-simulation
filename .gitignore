@@ -1,0 +1,17 @@
+# Maven build output
+target/
+
+# IDE files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+*.class
+
+# macOS metadata
+.DS_Store
+
+# Editor swap files
+*.swp
+*.swo
