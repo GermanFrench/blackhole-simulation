@@ -177,7 +177,7 @@ public class BlackHole {
      *
      * <pre>r_s = (2 · G · M) / c²</pre>
      */
-    public double getSchwarzschieldRadiusMetres() {
+    public double getSchwarzschildRadiusMetres() {
         return schwarzschildRadiusMetres;
     }
 

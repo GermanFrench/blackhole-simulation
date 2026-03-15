@@ -12,19 +12,19 @@ class BlackHoleTest {
     private static final double DELTA = 1e-6;
 
     @Test
-    void testSchwarzschieldRadiusFormula() {
+    void testSchwarzschildRadiusFormula() {
         // r_s = (2 * G * M) / c²
         double mass     = BlackHole.DEFAULT_MASS_KG;
         double expected = (2.0 * BlackHole.G * mass) / (BlackHole.C * BlackHole.C);
 
         BlackHole bh = new BlackHole(Vector2D.ZERO, mass);
-        assertEquals(expected, bh.getSchwarzschieldRadiusMetres(), expected * DELTA);
+        assertEquals(expected, bh.getSchwarzschildRadiusMetres(), expected * DELTA);
     }
 
     @Test
     void testEventHorizonPixelsScaling() {
         BlackHole bh = new BlackHole(Vector2D.ZERO, BlackHole.DEFAULT_MASS_KG);
-        double rsMetres = bh.getSchwarzschieldRadiusMetres();
+        double rsMetres = bh.getSchwarzschildRadiusMetres();
         double expectedPx = rsMetres / BlackHole.METRES_PER_PIXEL;
         assertEquals(expectedPx, bh.getEventHorizonPixels(), expectedPx * DELTA);
     }
@@ -50,13 +50,13 @@ class BlackHoleTest {
     @Test
     void testSetMassKgUpdatesAllFields() {
         BlackHole bh = new BlackHole(Vector2D.ZERO);
-        double oldRs  = bh.getSchwarzschieldRadiusMetres();
+        double oldRs  = bh.getSchwarzschildRadiusMetres();
         double oldGP  = bh.getGravParam();
 
         bh.setMassKg(BlackHole.DEFAULT_MASS_KG * 4);
 
         // All derived quantities should have updated
-        assertEquals(oldRs * 4, bh.getSchwarzschieldRadiusMetres(), oldRs * DELTA);
+        assertEquals(oldRs * 4, bh.getSchwarzschildRadiusMetres(), oldRs * DELTA);
         assertEquals(oldGP * 4, bh.getGravParam(), oldGP * DELTA);
     }
 
